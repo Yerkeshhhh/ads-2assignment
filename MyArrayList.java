@@ -5,19 +5,25 @@ public class MyArrayList<E> implements MyList<E> {
 
     private int size=0;
 
-    public void add(E element) {
+    @Override
+    public void add(E item) {
         if (size==holdElements.length) {
             Object[] newArray = new Object[holdElements.length*2];
-            System.arraycopy(holdElements, 0, newArray, 0, holdElements.length);
-            holdElements = newArray;
-        } else {
+            System.arraycopy(holdElements, 0, newArray, 0, 7);
+            holdElements=newArray;
+        } else
             holdElements[size++]=holdElements;
-        }
+    }
+
+    public E get(int index) {
+        if (index<0 || index>=holdElements.length) {
+            throw new ArrayIndexOutOfBoundsException();
+        } else
+            return (E) holdElements[index];
     }
 
     @Override
     public void add(E item, int index) {
-
     }
 
     @Override
@@ -25,10 +31,7 @@ public class MyArrayList<E> implements MyList<E> {
         return false;
     }
 
-    public E get(int index) {
 
-        return null;
-    }
 
     @Override
     public int indexOf(Object o) {
@@ -52,6 +55,8 @@ public class MyArrayList<E> implements MyList<E> {
     public boolean contains(Object o) {
         return false;
     }
+
+
 
     public void clear() {
 
