@@ -1,14 +1,19 @@
-public class MyArrayList implements MyList {
-    private Object[] arrayOfElements = new Object[10];
+public class MyArrayList<E> implements MyList<E> {
+    private Object[] holdElements = new Object[7];
+
     private int size=0;
 
     public void add(E element) {
-        if (size==arrayOfElements.length) {
-            Object[] newArray = new Object[arrayOfElements.length*2];
-            System.arraycopy(arrayOfElements, 0, newArray, 0, arrayOfElements.length);
-            arrayOfElements=newArray;
+        if (size==holdElements.length) {
+            Object[] newArray = new Object[holdElements.length*2];
+            System.arraycopy(holdElements, 0, newArray, 0, holdElements.length);
+            holdElements = newArray;
+        } else {
+            holdElements[size++]=holdElements;
         }
     }
+
+
 
 }
 
