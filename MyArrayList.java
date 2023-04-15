@@ -15,16 +15,42 @@ public class MyArrayList<E> implements MyList<E> {
         }
     }
 
-    public E get(int index) {
+    @Override
+    public void add(E item, int index) {
 
     }
 
-    public E remove( int index) {
+    @Override
+    public boolean remove(E item) {
+        return false;
+    }
 
+    public E get(int index) {
+
+        return null;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+    public E remove( int index) {
+        return null;
     }
 
     public int size() {
         return size;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
     }
 
     public void clear() {
