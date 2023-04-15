@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MyArrayList<E> implements MyList<E> {
     private Object[] holdElements = new Object[7];
 
@@ -13,8 +15,25 @@ public class MyArrayList<E> implements MyList<E> {
         }
     }
 
+    public E get(int index) {
 
+    }
 
+    public E remove( int index) {
+
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void clear() {
+
+    }
+
+    public void sort() {
+
+    }
 }
 
 /*
