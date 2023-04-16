@@ -1,37 +1,50 @@
 import java.util.Scanner;
 
 public class MyArrayList<E> implements MyList<E> {
-    private Object[] holdElements = new Object[7];
+    private Object[] holdElementsArray = new Object[7];
 
-    private int size=0;
+    private int size = 0;
 
     @Override
     public void add(E item) {
-        if (size==holdElements.length) {
-            Object[] newArray = new Object[holdElements.length*2];
-            System.arraycopy(holdElements, 0, newArray, 0, 7);
-            holdElements=newArray;
+        if (size == holdElementsArray.length) {
+            Object[] newArray = new Object[holdElementsArray.length * 2];
+            System.arraycopy(holdElementsArray, 0, newArray, 0, 7);
+            holdElementsArray = newArray;
         } else
-            holdElements[size++]=holdElements;
+            holdElementsArray[size++] = holdElementsArray;
     }
 
+    @Override
     public E get(int index) {
-        if (index<0 || index>=holdElements.length) {
+        if (index < 0 || index >= holdElementsArray.length) {
             throw new ArrayIndexOutOfBoundsException();
-        } else
-            return (E) holdElements[index];
+        }
+        return (E) holdElementsArray[index];
+    }
+
+    @Override
+    public E remove(int index) {
+        if (index < 0 || index >= holdElementsArray.length) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        E item = (E) holdElementsArray[index];
+        for (int i = index; i < size; i++) {
+            holdElementsArray[i] = holdElementsArray[i + 1];
+        }
+        size--;
+        return item;
     }
 
     @Override
     public void add(E item, int index) {
+
     }
 
     @Override
     public boolean remove(E item) {
         return false;
     }
-
-
 
     @Override
     public int indexOf(Object o) {
@@ -43,10 +56,7 @@ public class MyArrayList<E> implements MyList<E> {
         return 0;
     }
 
-    public E remove( int index) {
-        return null;
-    }
-
+    @Override
     public int size() {
         return size;
     }
@@ -56,12 +66,12 @@ public class MyArrayList<E> implements MyList<E> {
         return false;
     }
 
-
-
+    @Override
     public void clear() {
 
     }
 
+    @Override
     public void sort() {
 
     }
