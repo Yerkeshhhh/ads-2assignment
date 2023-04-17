@@ -38,7 +38,24 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public void add(E item, int index) {
-
+        if (index<0 || index>size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (size==holdElementsArray.length) {
+            Object[] newArr = new Object[holdElementsArray.length*2];
+            for (int i=0; i<index; i++) {
+                newArr[i]=holdElementsArray[i];
+            } for (int i=index; i<size; i++) {
+                newArr[i+1]=holdElementsArray[i];
+            }
+            holdElementsArray=newArr;
+        } else {
+            for (int i=size-1; i>=index; i--) {
+                holdElementsArray[i+1]=holdElementsArray[i];
+            }
+        }
+        holdElementsArray[index]=item;
+        size++;
     }
 
     @Override
@@ -48,12 +65,21 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        for (int i=0; i<size; i++) {
+            if (holdElementsArray[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-        return 0;
+        for (int i=size-1; i>0; i--) {
+            if (holdElementsArray[i].equals(o))
+                return i;
+        }
+        return -1;
     }
 
     @Override
@@ -63,22 +89,28 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public boolean contains(Object o) {
+        for (int i=0; i<=size; i++) {
+            if (holdElementsArray[i].equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public void clear() {
-
+        for (int i=0; i<=size; i++) {
+            holdElementsArray[i]=null;
+        }
     }
 
     @Override
     public void sort() {
 
-    }
-}
+    }}
 
 /*
-Create a new class called MyArrayList that implements the List interface.
+Create a new class called MyArrayList that implements the MyList interface.
 Define a private instance variable of type Object[] to hold the elements of the list.
 Define an int variable called size to keep track of the number of elements in the list.
 Implement the add(E element) method by first checking if the size of the array is large enough to accommodate the new element. If it is not, create a new array with double the size of the original array, copy over the elements from the original array, and then add the new element. Otherwise, simply add the new element to the end of the array and increment the size variable.
