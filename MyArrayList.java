@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MyArrayList<E> implements MyList<E> {
@@ -99,8 +100,9 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public void sort() {
-
-    }}
+        Arrays.sort(holdElementsArray, 0, 7);
+    }
+}
 
 /*
 Create a new class called MyArrayList that implements the MyList interface.
