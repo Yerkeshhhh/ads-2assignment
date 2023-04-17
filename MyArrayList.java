@@ -45,6 +45,14 @@ public class MyArrayList<E> implements MyList<E> {
 
     @Override
     public boolean remove(E item) {
+        for (int i=0; i<size; i++) {
+            if (holdElementsArray[i].equals(item)) {
+                System.arraycopy(holdElementsArray, i+1, holdElementsArray, i, size-i);
+                holdElementsArray[size-1]=null;
+                size--;
+                return true;
+            }
+        }
         return false;
     }
 
