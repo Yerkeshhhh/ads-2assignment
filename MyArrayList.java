@@ -102,6 +102,7 @@ public class MyArrayList<E> implements MyList<E> {
     public void sort() {
         Arrays.sort(holdElementsArray, 0, 7);
     }
+
 }
 
 /*
