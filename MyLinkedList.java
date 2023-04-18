@@ -14,7 +14,7 @@ Implement any other methods specified by the List interface.
 Test all methods of MyLinkedList
  */
 
-public class MyLinkedList<E> implements MyList<E>{
+public class MyLinkedList<E> implements MyList<E> {
 
     private class Node {
         E element;
@@ -22,9 +22,9 @@ public class MyLinkedList<E> implements MyList<E>{
         Node previous;
 
         Node(E element, Node next, E previous) {
-            this.element=element;
-            this.next=next;
-            this.previous= (Node) previous;
+            this.element = element;
+            this.next = next;
+            this.previous = (Node) previous;
         }
 
 
@@ -36,9 +36,9 @@ public class MyLinkedList<E> implements MyList<E>{
     int size;
 
     private MyLinkedList() {
-        head=null;
-        tail=null;
-        size=0;
+        head = null;
+        tail = null;
+        size = 0;
     }
 
 
@@ -55,12 +55,12 @@ public class MyLinkedList<E> implements MyList<E>{
     @Override
     public void add(E item) {
         Node newNode = new Node(item, null, tail);
-        if (item==null) {
-            head= (E) newNode;
+        if (item == null) {
+            head = (E) newNode;
         } else {
             tail = (E) newNode;
         }
-        tail= (E) newNode;
+        tail = (E) newNode;
         size++;
     }
 
@@ -76,34 +76,25 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public E remove(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node node =
     }
 
     @Override
     public void clear() {
         head = null;
         tail = null;
-        size=0;
+        size = 0;
     }
 
     @Override
     public E get(int index) {
-        if (index<0 || index>=size) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-        Node node;
-        if (index<size/2) {
-            node= (Node) head;
-            for (int i=0; i<index; i++) {
-                node=node.next;
-            }
-        } else {
-            node=(Node) tail;
-            for (int i=size-1; i>index; i--) {
-                node=node.previous;
-            }
-        }
-        return (E) node;
+        return getNode(index).element;
     }
 
     @Override
@@ -114,9 +105,9 @@ public class MyLinkedList<E> implements MyList<E>{
     @Override
     public int indexOf(Object o) {
         int index = 0;
-        if (o==null) {
-            for (Node node = (Node) head; node !=null; node=node.next) {
-                if (node.element==null) {
+        if (o == null) {
+            for (Node node = (Node) head; node != null; node = node.next) {
+                if (node.element == null) {
                     return index;
                 }
             }
@@ -128,5 +119,22 @@ public class MyLinkedList<E> implements MyList<E>{
     public int lastIndexOf(Object o) {
 
     }
+
+    private Node getNode(int index) {
+        Node node;
+        if (index < size / 2) {
+            node = (Node) head;
+            for (int i = 0; i < index; i++) {
+                node = node.next;
+            }
+        } else {
+            node = (Node) tail;
+            for (int i = size - 1; i > index; i--) {
+                node = node.previous;
+            }
+        }
+        return (Node) node;
+    }
 }
+
 
