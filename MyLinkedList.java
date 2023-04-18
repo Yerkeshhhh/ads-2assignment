@@ -160,8 +160,8 @@ public class MyLinkedList<E> implements MyList<E> {
                     return index;
                 }
             }
-            return -1;
         }
+        return -1;
     }
 
     @Override
