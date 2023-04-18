@@ -21,10 +21,10 @@ public class MyLinkedList<E> implements MyList<E>{
         Node next;
         Node previous;
 
-        Node(E element, Node next, Node previous) {
+        Node(E element, Node next, E previous) {
             this.element=element;
             this.next=next;
-            this.previous=previous;
+            this.previous= (Node) previous;
         }
 
 
@@ -50,10 +50,12 @@ public class MyLinkedList<E> implements MyList<E>{
     public void add(E item) {
         Node newNode = new Node(item, null, tail);
         if (item==null) {
-            head=newNode;
+            head= (E) newNode;
         } else {
-            tail.next = newNode;
+            tail = (E) newNode;
         }
+        tail= (E) newNode;
+        size++;
     }
 
     @Override
