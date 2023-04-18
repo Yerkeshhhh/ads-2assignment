@@ -66,12 +66,49 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void add(E item, int index) {
-
+        if (index<0 || index>size) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (index==size) {
+            add(item);
+            return;
+        }
+        Node newNode = new Node(item, null, null);
+        if (index==0) {
+            newNode.next= (Node) head;
+            ((Node) head).previous=newNode;
+            head= (E) newNode;
+        } else {
+            Node node = getNode(index);
+            newNode.next=node;
+            newNode.previous=node.previous;
+            node.previous.next=newNode;
+            node.next=newNode;
+        }
+        size++;
     }
 
     @Override
     public boolean remove(E item) {
-        return false;
+        Node node = (Node) head;
+        while (node != null && !node.element.equals(item)) {
+            node = node.next;
+        }
+        if (node==null) {
+            return false;
+        }
+        if (node.previous == null) {
+            head= (E) node.next;
+        } else {
+            node.previous.next=node.next;
+        }
+        if (node.next==null) {
+            tail= (E) node.previous;
+        } else {
+            node.next.previous = node.previous;
+        }
+        size--;
+        return true;
     }
 
     @Override
