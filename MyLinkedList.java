@@ -79,7 +79,19 @@ public class MyLinkedList<E> implements MyList<E> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
-        Node node =
+        Node node = getNode(index);
+        if (node.previous==null) {
+            head= (E) node.next;
+        } else {
+            node.previous.next=node.next;
+        }
+        if (node.next==null) {
+            tail= (E) node.previous;
+        } else {
+            node.next.previous=node.previous;
+        }
+        size--;
+        return node.element;
     }
 
     @Override
