@@ -14,6 +14,8 @@ Implement any other methods specified by the List interface.
 Test all methods of MyLinkedList
  */
 
+import java.util.Collection;
+
 public class MyLinkedList<E> implements MyList<E> {
 
     private class Node {
@@ -148,7 +150,6 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public void sort() {
-
     }
 
     @Override
