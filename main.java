@@ -22,6 +22,20 @@ public class main {
 
         myList.clear();
         System.out.println(myList); // Output: []
+
+
+
+
+        MyLinkedList<String> list = new MyLinkedList<>();
+        list.add("apple");
+        list.add("banana");
+        list.add("cherry");
+        list.add("date");
+        System.out.println(list.get(0)); // Output: apple
+        System.out.println(list.get(2)); // Output: cherry
+        list.remove(1);
+        System.out.println(list.get(1)); // Output: cherry
+        System.out.println(list.size()); // Output: 3
     }
 
 }

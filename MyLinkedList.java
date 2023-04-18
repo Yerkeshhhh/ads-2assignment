@@ -37,7 +37,7 @@ public class MyLinkedList<E> implements MyList<E> {
 
     int size;
 
-    private MyLinkedList() {
+    MyLinkedList() {
         head = null;
         tail = null;
         size = 0;
