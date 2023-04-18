@@ -35,6 +35,12 @@ public class MyLinkedList<E> implements MyList<E>{
 
     int size;
 
+    private MyLinkedList() {
+        head=null;
+        tail=null;
+        size=0;
+    }
+
 
     @Override
     public int size() {
@@ -82,7 +88,22 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public E get(int index) {
-        return null;
+        if (index<0 || index>=size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node node;
+        if (index<size/2) {
+            node= (Node) head;
+            for (int i=0; i<index; i++) {
+                node=node.next;
+            }
+        } else {
+            node=(Node) tail;
+            for (int i=size-1; i>index; i--) {
+                node=node.previous;
+            }
+        }
+        return (E) node;
     }
 
     @Override
@@ -97,6 +118,16 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public void sort() {
+
+    }
+
+    @Override
+    public int indexOf(Object o) {
+
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
 
     }
 }
