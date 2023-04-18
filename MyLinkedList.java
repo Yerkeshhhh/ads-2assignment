@@ -129,7 +129,23 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public int lastIndexOf(Object o) {
-
+        int lastIndex = -1;
+        if (o==null) {
+            for (int i=size-1; i>=0; i--) {
+                if (getNode(i).element==null) {
+                    lastIndex=i;
+                    break;
+                }
+            }
+        } else {
+            for (int i=size-1; i>=0; i--) {
+                if (o.equals(getNode(i).element)) {
+                    lastIndex=i;
+                    break;
+                }
+            }
+        }
+        return lastIndex;
     }
 
     private Node getNode(int index) {
