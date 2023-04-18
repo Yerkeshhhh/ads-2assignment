@@ -11,7 +11,7 @@ Implement the get(int index) method by traversing the list from the head (or tai
 Implement the remove(int index) method by first traversing the list to the node at the specified index. Then, update the next and previous references of the surrounding nodes to remove the node from the list, and decrement the size variable.
 Implement the size() method by returning the size variable.
 Implement any other methods specified by the List interface.
-Test all methods of MyLinkedLists,nm
+Test all methods of MyLinkedList
  */
 
 import java.util.Collection;
