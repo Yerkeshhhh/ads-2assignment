@@ -30,7 +30,7 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
