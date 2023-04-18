@@ -20,6 +20,14 @@ public class MyLinkedList<E> implements MyList<E>{
         E element;
         Node next;
         Node previous;
+
+        Node(E element, Node next, Node previous) {
+            this.element=element;
+            this.next=next;
+            this.previous=previous;
+        }
+
+
     }
 
     private E head;
@@ -35,12 +43,17 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return true;
     }
 
     @Override
     public void add(E item) {
-
+        Node newNode = new Node(item, null, tail);
+        if (item==null) {
+            head=newNode;
+        } else {
+            tail.next = newNode;
+        }
     }
 
     @Override
