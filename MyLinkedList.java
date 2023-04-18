@@ -115,19 +115,12 @@ public class MyLinkedList<E> implements MyList<E>{
     public int indexOf(Object o) {
         int index = 0;
         if (o==null) {
-            for (Node node = (Node) head; node!=null; node=node.next) {
+            for (Node node = (Node) head; node !=null; node=node.next) {
                 if (node.element==null) {
                     return index;
-                } else {
-                    for (node = (Node) head; node!= null; node=node.next) {
-                        if (o.equals(node.element)) {
-                            return index;
-                        }
-                        index++;
-                    }
                 }
-                return -1;
             }
+            return -1;
         }
     }
 
