@@ -107,23 +107,28 @@ public class MyLinkedList<E> implements MyList<E>{
     }
 
     @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
     public void sort() {
 
     }
 
     @Override
     public int indexOf(Object o) {
-
+        int index = 0;
+        if (o==null) {
+            for (Node node = (Node) head; node!=null; node=node.next) {
+                if (node.element==null) {
+                    return index;
+                } else {
+                    for (node = (Node) head; node!= null; node=node.next) {
+                        if (o.equals(node.element)) {
+                            return index;
+                        }
+                        index++;
+                    }
+                }
+                return -1;
+            }
+        }
     }
 
     @Override
