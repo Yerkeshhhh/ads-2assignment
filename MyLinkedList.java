@@ -49,7 +49,7 @@ public class MyLinkedList<E> implements MyList<E> {
 
     @Override
     public boolean contains(Object o) {
-        return true;
+        return indexOf(o)>=0;
     }
 
     @Override
