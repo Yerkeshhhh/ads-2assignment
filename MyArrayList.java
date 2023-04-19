@@ -42,6 +42,16 @@ public class MyArrayList<E> implements MyList<E> {
         if (index<0 || index>size) {
             throw new IndexOutOfBoundsException();
         }
+        if (size==holdElementsArray.length) {
+            Object[] newArray = new Object[holdElementsArray.length*2];
+            System.arraycopy(holdElementsArray, 0, newArray, 0, size);
+            newArray=holdElementsArray;
+        }
+        for (int i=size-1; i>index; i--) {
+            holdElementsArray[i+1]=holdElementsArray[i];
+        }
+        holdElementsArray[index]=item;
+        size++;
     }
 
     @Override
