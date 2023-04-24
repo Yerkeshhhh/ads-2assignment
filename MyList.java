@@ -18,4 +18,6 @@ public interface MyList<E> {
     int lastIndexOf(Object o);
 
     void sort();
+
+    E addAll();
 }

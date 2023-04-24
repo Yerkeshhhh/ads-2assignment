@@ -153,6 +153,11 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
     @Override
+    public E addAll() {
+        return null;
+    }
+
+    @Override
     public int indexOf(Object o) {
         int index = 0;
         if (o == null) {

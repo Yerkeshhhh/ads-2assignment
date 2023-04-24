@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyArrayList<E> implements MyList<E> {
@@ -111,6 +112,17 @@ public class MyArrayList<E> implements MyList<E> {
     @Override
     public void sort() {
         Arrays.sort(holdElementsArray, 0, 7);
+    }
+
+    @Override
+    public E addAll() {
+        int index=0;
+        Object[] newArr = new Object[holdElementsArray.length];
+        System.arraycopy(holdElementsArray, 0, newArr, 0, holdElementsArray.length);
+        for (int i=0; i<newArr.length; i++) {
+            System.out.println(newArr[i]);
+        }
+        return null;
     }
 
 }
